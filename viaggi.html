@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tutte le tappe del nostro viaggio: Bangkok, Ayutthaya, Chiang Mai, Pai, Phuket, Vietnam, Bali e Australia.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Tappe - I nostri viaggi</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f4f6f7; color: #333; }
+        .navbar { background: #2c3e50; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: white; font-weight: bold; font-size: 1.2rem; text-decoration: none; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { background-color: #3498db; color: white; padding: 10px 18px; font-size: 1.2rem; border: none; border-radius: 4px; cursor: pointer; }
+        .dropdown-content { display: none; position: absolute; right: 0; background-color: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); border-radius: 4px; overflow: hidden; }
+        .dropdown-content a { color: #333; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.9rem; }
+        .dropdown-content a:hover { background-color: #f1f1f1; }
+        .dropdown:hover .dropdown-content { display: block; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        h1.section-title { text-align: center; margin-bottom: 30px; color: #2c3e50; }
+        .travel-list { display: flex; flex-direction: column; gap: 20px; }
+        .travel-item { display: flex; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .travel-item:hover { transform: translateY(-2px); }
+        .travel-img { width: 250px; height: 180px; object-fit: cover; flex-shrink: 0; }
+        .travel-info { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+        .btn-title { font-size: 1.4rem; font-weight: bold; color: #3498db; text-decoration: none; margin-bottom: 8px; }
+        .btn-title:hover { color: #2980b9; text-decoration: underline; }
+        
+        @media (max-width: 600px) {
+            .travel-item { flex-direction: column; }
+            .travel-img { width: 100%; height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">✈️ I nostri viaggi</a>
+        <div class="dropdown">
+            <button class="dropbtn">☰</button>
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="viaggi.html">Le Tappe</a>
+                <a href="indovina.html">Indovina dove andremo</a>
+                <a href="bacheca.html">Bacheca</a>
+                <a href="contatti.html">Scrivici</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="section-title">Le Nostre Tappe</h1>
+        <div class="travel-list">
+            
+            <!-- Tappa 1: Bangkok -->
+            <div class="travel-item">
+                <img src="watarunNotte.jpg" alt="Bangkok - Wat Arun di notte" class="travel-img">
+                <div class="travel-info">
+                    <a href="bangkok.html" class="btn-title">1. L'energia travolgente di Bangkok</a>
+                    <p>Tra templi dorati, mercati caotici e grattacieli moderni: l'inizio della nostra straordinaria avventura in Thailandia.</p>
+                </div>
+            </div>
+
+            <!-- Tappa 2: Ayutthaya -->
+            <div class="travel-item">
+                <img src="Buddha.jpg" alt="Ayutthaya - Faccia del Buddha" class="travel-img">
+                <div class="travel-info">
+                    <a href="racconto-esempio.html" class="btn-title">2. Alla scoperta di Ayutthaya</a>
+                    <p>Un viaggio fotografico nel tempo tra le maestose rovine, lo stile Khmer e i misteri della Thailandia antica.</p>
+                </div>
+            </div>
+
+            <!-- Tappa 3: Chiang Mai -->
+            <div class="travel-item">
+                <img src="watPraSingh.jpeg" alt="Chiang Mai - Wat Phra Singh" class="travel-img">
+                <div class="travel-info">
+                    <a href="chiang-mai.html" class="btn-title">3. Chiang Mai: La rosa del Nord</a>
+                    <p>La Thailandia più verde e spirituale, circondata da montagne sacre, santuari e un'atmosfera d'altri tempi.</p>
+                </div>
+            </div>
+
+            <!-- Tappa 4: Pai -->
+            <div class="travel-item">
+                <img src="https://images.unsplash.com/photo-1542856391-010fb87dcfed?w=500" alt="Pai" class="travel-img">
+                <div class="travel-info">
+                    <a href="#" title="Prossimamente" class="btn-title">4. Pai: Relax e natura tra le montagne</a>
+                    <p>Un piccolo paradiso hippie nascosto tra canyon, cascate e infinite curve panoramiche.</p>
+                </div>
+            </div>
+
+            <!-- Tappa 5: Phuket -->
+            <div class="travel-item">
+                <img src="https://images.unsplash.com/photo-1589394815804-964ed7be2eb9?w=500" alt="Phuket" class="travel-img">
+                <div class="travel-info">
+                    <a href="#" title="Prossimamente" class="btn-title">5. Phuket: Il mare delle Andamane</a>
+                    <p>Spiagge tropicali di sabbia bianca, acque cristalline ed escursioni tra maestosi faraglioni calcarei a picco sul mare.</p>
+                </div>
+            </div>
+
+            <!-- Tappa 6: Ho Chi Minh -->
+            <div class="travel-item">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500" alt="Ho Chi Minh" class="travel-img">
+                <div class="travel-info">
+                    <a href="#" title="Prossimamente" class="btn-title">6. Ho Chi Minh: Il cuore pulsante del Vietnam</a>
+                    <p>La vecchia Saigon: un fiume inarrestabile di motorini, architettura coloniale e mercati storici.</p>
+                </div>
+            </div>
+
+            <!-- Tappa 7: Hoi An e Da Nang -->
+            <div class="travel-item">
+                <img src="Hoian.jpg" alt="Hoi An - Luci sul fiume di notte" class="travel-img">
+                <div class="travel-info">
+                    <a href="#" title="Prossimamente" class="btn-title">7. L'incanto di Hoi An e la modernità di Da Nang</a>
+                    <p>Dalle lanterne magiche della città vecchia sul fiume ai ponti futuristici e le spiagge della costa vietnamita.</p>
+                </div>
+            </div>
+
+            <!-- Tappa 8: Bali -->
+            <div class="travel-item">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500" alt="Bali" class="travel-img">
+                <div class="travel-info">
+                    <a href="#" title="Prossimamente" class="btn-title">8. Bali: L'Isola degli Dei</a>
+                    <p>Terrazze di riso verde smeraldo, spiritualità profonda nei templi induisti e tramonti sull'oceano.</p>
+                </div>
+            </div>
+
+            <!-- Tappa 9: Perth -->
+            <div class="travel-item">
+                <img src="https://images.unsplash.com/photo-1573052843023-955c58a5e01f?w=500" alt="Perth" class="travel-img">
+                <div class="travel-info">
+                    <a href="#" title="Prossimamente" class="btn-title">9. Perth: Il nostro nuovo capitolo in Australia</a>
+                    <p>Dall'Asia all'Oceania: la fine del grande viaggio e l'inizio di una nuova avventura tra spiagge infinite e cieli sconfinati.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

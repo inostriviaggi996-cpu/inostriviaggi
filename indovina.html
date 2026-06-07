@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Indovina la prossima meta del nostro viaggio e vota la tua destinazione preferita!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indovina la Meta - Diario di Coppia</title>
+    <style>
+        /* Stili Navbar uguali alle altre pagine */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f7; text-align: center; }
+        .navbar { background: #2c3e50; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: white; font-weight: bold; font-size: 1.2rem; text-decoration: none; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { background-color: #3498db; color: white; padding: 10px 18px; font-size: 1.2rem; border: none; border-radius: 4px; cursor: pointer; }
+        .dropdown-content { display: none; position: absolute; right: 0; background-color: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); border-radius: 4px; }
+        .dropdown-content a { color: #333; padding: 12px 16px; text-decoration: none; display: block; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .container { max-width: 850px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .map-wrapper { position: relative; display: inline-block; width: 100%; margin: 20px 0; }
+        .map-img { width: 100%; display: block; }
+        .legend-click-area { position: absolute; bottom: 3%; left: 4%; width: 92%; height: 8%; display: flex; }
+        .btn-legenda { flex: 1; cursor: pointer; background: transparent; border: none; }
+        .btn-legenda:hover { background: rgba(52, 152, 219, 0.1); border: 1px solid rgba(52, 152, 219, 0.3); }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; font-weight: bold; background: #f8f9fa; padding: 15px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">✈️ I nostri viaggi</a>
+        <div class="dropdown">
+            <button class="dropbtn">☰</button>
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="viaggi.html">I Nostri Viaggi</a>
+                <a href="indovina.html">Indovina dove andremo</a>
+                <a href="bacheca.html">Bacheca</a>
+                <a href="contatti.html">Scrivici</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>🗺️ Dove punteremo la bussola?</h2>
+        <p>Clicca sui pallini colorati della legenda per scommettere!</p>
+        <div class="map-wrapper">
+            <img src="Map.jpg" alt="Mappa" class="map-img">
+            <div class="legend-click-area">
+                <button class="btn-legenda" onclick="vota('nordamerica')"></button>
+                <button class="btn-legenda" onclick="vota('sudamerica')"></button>
+                <button class="btn-legenda" onclick="vota('europa')"></button>
+                <button class="btn-legenda" onclick="vota('africa')"></button>
+                <button class="btn-legenda" onclick="vota('asia')"></button>
+                <button class="btn-legenda" onclick="vota('australia')"></button>
+            </div>
+        </div>
+        <div class="stats">
+            <div>Nord Am: <span id="voti-nordamerica">0</span>%</div>
+            <div>Sud Am: <span id="voti-sudamerica">0</span>%</div>
+            <div>Europa: <span id="voti-europa">0</span>%</div>
+            <div>Africa: <span id="voti-africa">0</span>%</div>
+            <div>Asia: <span id="voti-asia">0</span>%</div>
+            <div>Australia: <span id="voti-australia">0</span>%</div>
+        </div>
+    </div>
+    <script>
+        const DEFAULT_VOTI = { nordamerica: 5, sudamerica: 3, europa: 8, africa: 2, asia: 12, australia: 4 };
+        let voti = JSON.parse(localStorage.getItem('voti_destinazione')) || Object.assign({}, DEFAULT_VOTI);
+        let haVotato = localStorage.getItem('ha_votato') === 'true';
+
+        function vota(z) {
+            if (haVotato) { alert("Hai già votato! Puoi votare solo una volta."); return; }
+            voti[z]++;
+            haVotato = true;
+            localStorage.setItem('voti_destinazione', JSON.stringify(voti));
+            localStorage.setItem('ha_votato', 'true');
+            aggiorna();
+            alert("Scommessa salvata! Grazie per aver votato 🗺️");
+        }
+        function aggiorna() {
+            let t = 0; for(let k in voti) t += voti[k];
+            for(let k in voti) document.getElementById('voti-'+k).innerText = Math.round((voti[k]/t)*100);
+            if (haVotato) {
+                document.querySelectorAll('.btn-legenda').forEach(b => b.style.cursor = 'not-allowed');
+            }
+        }
+        aggiorna();
+    </script>
+</body>
+</html>
